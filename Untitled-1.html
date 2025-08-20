@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>Middle East - Official</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: "Tajawal", sans-serif;
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      color: #fff;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 30px 0;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+    }
+
+    header img {
+      width: 120px;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      margin: 20px 0;
+      background: linear-gradient(90deg, #ff00cc, #3333ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeIn 2s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .buttons {
+      margin-top: 40px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      border: none;
+      border-radius: 12px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      color: #fff;
+      background: linear-gradient(45deg, #6a11cb, #2575fc);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    footer {
+      margin-top: 60px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(5px);
+      font-size: 0.9rem;
+    }
+
+    /* استايلات الاستبيان */
+    #applicationForm {
+      display: none;
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 400px;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: right;
+    }
+
+    #applicationForm input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 8px;
+      border: none;
+    }
+
+    #applicationForm button {
+      padding: 10px 20px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: white;
+      cursor: pointer;
+    }
+
+    /* أسماء المسؤولين */
+    .admins {
+      margin-top: 50px;
+      font-size: 1.1rem;
+      background: rgba(0,0,0,0.2);
+      display: inline-block;
+      padding: 15px 30px;
+      border-radius: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="image.webp" alt="Middle East Logo">
+  </header>
+
+  <main>
+    <h1>مرحباً بك في Middle East</h1>
+
+    <div class="buttons">
+      <button class="btn" id="discordLogin">تسجيل الدخول عبر Discord</button>
+      <button class="btn" id="applyBtn">التقديم على Middle East</button>
+      <button class="btn" id="joinServer">الانضمام إلى السيرفر</button>
+    </div>
+
+    <!-- استبيان التقديم -->
+    <div id="applicationForm">
+      <h2>استبيان التقديم</h2>
+      <form id="form">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="number" name="age" placeholder="عمرك" required>
+        <input type="text" name="characterName" placeholder="اسم شخصيتك" required>
+        <input type="number" name="characterAge" placeholder="عمر شخصيتك" required>
+        <input type="text" name="discordID" placeholder="ايديك الديسكورد / يوزرك" required>
+        <button type="submit">إرسال الطلب</button>
+      </form>
+    </div>
+
+    <!-- أسماء المسؤولين -->
+    <div class="admins">
+      <p>مسؤول السيرفر 1: AdminName1</p>
+      <p>مسؤول السيرفر 2: AdminName2</p>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 Middle East - جميع الحقوق محفوظة
+  </footer>
+
+  <script>
+    // فتح الاستبيان عند الضغط على زر التقديم
+    document.getElementById("applyBtn").addEventListener("click", function() {
+      let form = document.getElementById("applicationForm");
+      form.style.display = form.style.display === "none" ? "block" : "none";
+      form.scrollIntoView({behavior: "smooth"});
+    });
+
+    // فتح رابط السيرفر عند الضغط على زر الانضمام
+    document.getElementById("joinServer").addEventListener("click", function() {
+      window.open("https://discord.gg/Z9dgYkrXnf", "_blank");
+    });
+
+    // إرسال بيانات الاستبيان
+    document.getElementById("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("تم إرسال طلبك بنجاح!"); // يمكنك تعديلها لإرسال البيانات إلى السيرفر
+      document.getElementById("form").reset();
+      document.getElementById("applicationForm").style.display = "none";
+    });
+  </script>
+
+</body>
+</html>
